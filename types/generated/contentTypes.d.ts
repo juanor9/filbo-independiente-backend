@@ -376,7 +376,11 @@ export interface ApiEditorialEditorial extends Schema.CollectionType {
   attributes: {
     nombre: Attribute.String & Attribute.Required;
     logo: Attribute.Media & Attribute.Required;
-    descripcion: Attribute.Text & Attribute.Required;
+    descripcion: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 400;
+      }>;
     stand: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
